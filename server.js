@@ -3,6 +3,7 @@ let app = express();
 let path = require("path");
 let cors = require("cors");
 let bodyParser = require("body-parser");
+let routes = require("./routes");
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -15,25 +16,7 @@ app.use((req, res, next) => {
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-const posts = [
-    {
-        username: "Jacob",
-        title: "Post 1"
-    },
-    {
-        username: "Mike",
-        title: "Post 2"
-    },
-    {
-        username: "Sean",
-        title: "Post 3"
-    },
-]
-
-app.get("/api", (req, res) => {
-  res.json(posts);
-});
+app.use("/api", routes)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
