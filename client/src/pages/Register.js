@@ -9,7 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         // axios.post("http://localhost:5000/register", {
         //     name: name,
         //     email: email,
@@ -25,6 +25,7 @@ const Register = () => {
         }
 
         API.postRegisterForm(registerFormData)
+        await 
         
     }
 

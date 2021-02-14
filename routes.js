@@ -14,12 +14,14 @@ router.post("/register", async (req, res) => {
             email: req.body.email,
             password: hashedPassword
         })
+        console.log("===== NEW USER =====")
 
         // redirect user to login after they register
-        console.log(users)
     } catch {
-
+        console.log("ERROR WHILE ADDING USER")
     }
 })
+
+router.get("/user/:id")
 
 module.exports = router;
