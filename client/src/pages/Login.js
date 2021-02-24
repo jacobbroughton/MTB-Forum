@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import { useUser } from "../contexts/user";
 import { useHistory, useLocation } from "react-router-dom"
+import { useStatusUrl } from "../contexts/statusUrl"
 import "./styles/Login.scss";
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const { getUser } = useUser()
+    const { statusUrl } = useStatusUrl()
     let history = useHistory();
     let location = useLocation();
 
