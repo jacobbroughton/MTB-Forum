@@ -29,7 +29,7 @@ const Login = () => {
             method: "post",
             data: payload,
             withCredentials: true, // True otherwise I receive another error
-            url: "http://localhost:5000/api/login"
+            url: `${statusUrl}/api/login`
         })
             .then(() => getUser())
             .catch(err => console.log(err))
