@@ -5,16 +5,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile"
+import TaskPage from "./pages/TaskPage"
+import { useUser } from "./contexts/user";
 
 function App() {
 
-  const [person, setCurrentPerson] = useState({})
 
   return (
     <Router>
@@ -30,11 +32,37 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
+          <PrivateRoute path="/profile">
+            <Profile/>
+          </PrivateRoute>
+          <PrivateRoute path="/tasks">
+            <TaskPage/>
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>
-
   );
+}
+
+function PrivateRoute({ children, ...rest }) {
+  let { user } = useUser();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => 
+        user ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+  )
 }
 
 export default App;

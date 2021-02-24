@@ -1,47 +1,71 @@
-import axios from "axios";
 import { useState } from "react";
-let API = require("../api.js")
- 
+import axios from "axios";
+import moment from "moment";
+import {
+    useHistory
+} from "react-router-dom";
+import "./styles/Register.scss";
+
 const Register = () => {
 
-    // const [registerFormData, setRegisterFormData] = useState({});
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [registerName, setRegisterName] = useState("")
+    const [registerPassword, setRegisterPassword] = useState("")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    let history = useHistory()
 
-    const submitForm = async (e) => {
-        // axios.post("http://localhost:5000/register", {
-        //     name: name,
-        //     email: email,
-        //     password: password
-        // })
-        // .then((res) => console.log(res))
-        // .catch((error) => console.log(error)) 
-        e.preventDefault()
-        let registerFormData = {
-            name,
-            email,
-            password
-        }
+    const register = () => {
 
-        API.postRegisterForm(registerFormData)
-        await 
-        
+        let date = moment().format('MMMM Do YYYY')
+        let time = moment().format('LT')
+        let profilePicture = ""; // Change to state eventually
+
+        axios({
+            method: "post",
+            data: {
+                username: registerName,
+                password: registerPassword,
+                firstName,
+                lastName,
+                profilePicture,
+                date: date,
+                time: time
+            },
+            withCredentials: true,
+            url: "http://localhost:5000/api/register"
+        })
+        .then((res) => console.log(res))
+        history.push("/login");
     }
 
     return (
-        <div>
-            <h1>Register</h1>
-            <form onSubmit={(e) => submitForm(e)} method="GET">
+        <div className="registerFullPage">
 
-                <label htmlFor="name">Name</label>
-                <input onChange={(e) => setName(e.target.value)} name="name" type="text"/>
+            <form className="registerForm" onSubmit={(e) => register(e)}>
+                <h1 className="registerHeading">Register</h1>
 
-                <label htmlFor="email">Email</label>
-                <input onChange={(e) => setEmail(e.target.value)} name="email" type="email"/>
 
-                <label htmlFor="password">Password</label>
-                <input onChange={(e) => setPassword(e.target.value)} name="password" type="password" required/>
+                <div className="formInputParent">
+                    <input onChange={(e) => setRegisterName(e.target.value)} name="username" type="text" />
+                    <label htmlFor="username">Username <span className="requiredAsterisk">*</span></label>
+                </div>
+
+
+                <div className="formInputParent">
+                    <input onChange={(e) => setRegisterPassword(e.target.value)} name="password" type="password" required />
+                    <label htmlFor="password">Password <span className="requiredAsterisk">*</span></label>
+                </div>
+
+                <div className="formInputParent">
+                    <input onChange={(e) => setFirstName(e.target.value)} name="firstName" type="text" />
+                    <label htmlFor="firstName">First Name</label>
+                </div>
+
+                <div className="formInputParent">
+                    <input onChange={(e) => setLastName(e.target.value)} name="lastName" type="text" />
+                    <label htmlFor="lastName">Last Name</label>
+                </div>
+
 
                 <button type="submit">Submit</button>
             </form>

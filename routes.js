@@ -1,27 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt")
+const controller = require("./controller");
 
-let users = []
+router.post("/login", controller.login)
 
-router.post("/register", async (req, res) => {
-    console.log("===== NEW USER =====")
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        console.log("===== NEW USER =====")
+router.get("/logout", controller.logout)
 
-        // redirect user to login after they register
-    } catch {
-        console.log("ERROR WHILE ADDING USER")
-    }
+router.post("/register", controller.register)
+
+router.get("/gettasks/:userId", controller.getTasks);
+
+router.post("/posttask", controller.postTask)
+
+router.get("/user", (req, res) => {
+    res.send(req.user)
 })
 
-router.get("/user/:id")
 
 module.exports = router;

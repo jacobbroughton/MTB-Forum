@@ -1,22 +1,44 @@
-let express = require("express");
-let app = express();
-let path = require("path");
-let cors = require("cors");
-let bodyParser = require("body-parser");
-let routes = require("./routes");
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser")
+const session = require("express-session");
+const routes = require("./routes");
+require("dotenv").config();
+const app = express();
 
-app.use(cors());
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/api", routes)
+app.use(
+  cors({
+  origin: "http://localhost:3000", // Location of the react app we're connected to
+  credentials: true
+  // allowedHeaders: 'Content-Type,application/text-plain'
+}));
+
+
+app.use(
+  session({
+    secret: "secretcode", // call whatever, use in the cookie parser
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+
+
+app.use(cookieParser("secretcode"));
+app.use(passport.initialize())
+app.use(passport.session());
+require("./passportConfig")(passport)
+
+app.use("/api", routes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

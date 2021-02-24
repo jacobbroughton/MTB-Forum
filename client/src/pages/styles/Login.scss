@@ -1,0 +1,44 @@
+.loginFullPage {
+    height: 100%;
+    padding: 50px;
+    .loginHeading {
+        margin-bottom: 50px;
+        font-size: 2rem;
+    }
+    .loginForm {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 20px 30px;
+        box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
+        max-width: 400px;
+        
+        .formInputParent {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 15px;
+            label {
+                margin-right: 5px;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+            input {
+                padding: 2px 5px;
+                width: 100%;
+                align-self: flex-start;
+            }
+        }            
+        button{ 
+                align-self: flex-start;
+                padding: 3px 5px;
+                background: #181818;
+                color: #fff;
+                border: none;
+                border-radius: 3px;
+            }
+    }
+}
