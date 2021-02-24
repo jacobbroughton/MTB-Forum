@@ -6,8 +6,8 @@ export const useStatusUrl = () => useContext(StatusUrlContext);
 export const StatusUrlProvider = props => {
 
     let initialState = {
-        serverUrl: process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://ecstatic-hodgkin-b2db53.netlify.app",
-        clientUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://ecstatic-hodgkin-b2db53.netlify.app"
+        serverUrl: process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://task-board-jb.herokuapp.com/",
+        clientUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://task-board-jb.herokuapp.com/"
     }
 
     return (
