@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import axios from "axios"
 import moment from "moment"
-import { useUser } from "../contexts/user";
+import { useUser } from "../contexts/user"
+import { useStatusUrl } from "../contexts/statusUrl"
 import "./styles/TaskPage.scss"
 
 const TaskPage = () => {
@@ -11,12 +12,13 @@ const TaskPage = () => {
     const [mainText, setMainText] = useState("Main Text")
     const [tags, setTags] = useState("blue,red")
     const [board, setBoard] = useState("personal")
+    const { statusUrl } = useStatusUrl()
     // const [dateCreated, setDateCreated] = useState("")
     // const [timeCreated, setTimeCreated] = useState("")
 
     useEffect(() => {
         axios
-        .get(`http://localhost:5000/api/gettasks/${user.id}`)
+        .get(`${statusUrl}/api/gettasks/${user.id}`)
         .then(res => setTasks([...res.data]))
         .catch(err => console.log(err))
     }, [])
@@ -25,7 +27,7 @@ const TaskPage = () => {
         let date = moment().format('MMMM Do YYYY')
         let time = moment().format('LT')
         axios
-        .post("http://localhost:5000/api/posttask", {
+        .post(`${statusUrl}/api/posttask`, {
             userId: user.id,
             mainText,
             tags,

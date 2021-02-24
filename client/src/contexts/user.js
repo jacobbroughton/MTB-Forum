@@ -1,20 +1,24 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import axios from "axios";
+import { useStatusUrl } from "./statusUrl";
 
 export const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
+
 
 
 export const UserProvider = (props) => {
 
     const [user, setUser] = useState(null)
     const [authenticated, setAuthenticated] = useState(false)
+    const { statusUrl } = useStatusUrl();
 
 
     useEffect(() => {
         getUser();
     }, [])
     
+
     useEffect(() => {
         console.log(user)
     }, [user])
@@ -24,7 +28,7 @@ export const UserProvider = (props) => {
         axios({
             method: "get",
             withCredentials: true,
-            url: "http://localhost:5000/api/logout"
+            url: `${statusUrl}/api/logout`
         })
         .then((res) => {
             setAuthenticated(false)
@@ -33,12 +37,13 @@ export const UserProvider = (props) => {
         cb();
     }
 
+
     const getUser = () => {
         console.log(user)
         axios({
             method: "get",
             withCredentials: true,
-            url: "http://localhost:5000/api/user"
+            url: `${statusUrl}/api/user`
         })
         .then((res) => {
             console.log(res.data)

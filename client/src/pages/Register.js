@@ -4,6 +4,7 @@ import moment from "moment";
 import {
     useHistory
 } from "react-router-dom";
+import { useStatusUrl } from "../contexts/statusUrl"
 import "./styles/Register.scss";
 
 const Register = () => {
@@ -12,6 +13,7 @@ const Register = () => {
     const [registerPassword, setRegisterPassword] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const statusUrl = useStatusUrl()
     let history = useHistory()
 
     const register = () => {
@@ -32,7 +34,7 @@ const Register = () => {
                 time: time
             },
             withCredentials: true,
-            url: "http://localhost:5000/api/register"
+            url: `${statusUrl}/api/register`
         })
         .then((res) => console.log(res))
         history.push("/login");

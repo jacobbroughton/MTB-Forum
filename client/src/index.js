@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from "./contexts/user.js"
+import { StatusUrlProvider } from "./contexts/statusUrl.js"
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
+    <StatusUrlProvider>
+      <UserProvider>
         <App />
-    </UserProvider>
+      </UserProvider>
+    </StatusUrlProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -12,12 +12,12 @@ const app = express();
 
 
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-  origin: "http://localhost:3000", // Location of the react app we're connected to
+  // origin: "http://localhost:3000", // Location of the react app we're connected to
+  origin: "https://ecstatic-hodgkin-b2db53.netlify.app",
   credentials: true
   // allowedHeaders: 'Content-Type,application/text-plain'
 }));
