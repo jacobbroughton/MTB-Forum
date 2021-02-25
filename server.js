@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-  origin: "http://localhost:3000", // Location of the react app we're connected to
-  // origin: "https://task-board-jb.herokuapp.com/",
+  // origin: "http://localhost:3000", // Location of the react app we're connected to
+  origin: "https://task-board-jb.herokuapp.com/",
   credentials: true
   // allowedHeaders: 'Content-Type,application/text-plain'
 }));
