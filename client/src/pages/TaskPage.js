@@ -12,13 +12,13 @@ const TaskPage = () => {
     const [mainText, setMainText] = useState("Main Text")
     const [tags, setTags] = useState("blue,red")
     const [board, setBoard] = useState("personal")
-    const { statusUrl } = useStatusUrl()
+    const { serverUrl } = useStatusUrl()
     // const [dateCreated, setDateCreated] = useState("")
     // const [timeCreated, setTimeCreated] = useState("")
 
     useEffect(() => {
         axios
-        .get(`${statusUrl}/api/gettasks/${user.id}`)
+        .get(`${serverUrl}/api/gettasks/${user.id}`)
         .then(res => setTasks([...res.data]))
         .catch(err => console.log(err))
     }, [])
@@ -27,7 +27,7 @@ const TaskPage = () => {
         let date = moment().format('MMMM Do YYYY')
         let time = moment().format('LT')
         axios
-        .post(`${statusUrl}/api/posttask`, {
+        .post(`${serverUrl}/api/posttask`, {
             userId: user.id,
             mainText,
             tags,

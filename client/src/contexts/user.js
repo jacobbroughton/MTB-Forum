@@ -11,10 +11,11 @@ export const UserProvider = (props) => {
 
     const [user, setUser] = useState(null)
     const [authenticated, setAuthenticated] = useState(false)
-    const { statusUrl } = useStatusUrl();
+    const { serverUrl } = useStatusUrl();
 
 
     useEffect(() => {
+        console.log(serverUrl)
         getUser();
     }, [])
     
@@ -28,7 +29,7 @@ export const UserProvider = (props) => {
         axios({
             method: "get",
             withCredentials: true,
-            url: `${statusUrl}/api/logout`
+            url: `${serverUrl}/api/logout`
         })
         .then((res) => {
             setAuthenticated(false)
@@ -43,7 +44,7 @@ export const UserProvider = (props) => {
         axios({
             method: "get",
             withCredentials: true,
-            url: `${statusUrl}/api/user`
+            url: `${serverUrl}/api/user`
         })
         .then((res) => {
             console.log(res.data)

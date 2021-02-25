@@ -10,7 +10,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const { getUser } = useUser()
-    const { statusUrl } = useStatusUrl()
+    const { serverUrl } = useStatusUrl()
     let history = useHistory();
     let location = useLocation();
 
@@ -31,7 +31,7 @@ const Login = () => {
             method: "post",
             data: payload,
             withCredentials: true, // True otherwise I receive another error
-            url: `${statusUrl}/api/login`
+            url: `${serverUrl}/api/login`
         })
             .then(() => getUser())
             .catch(err => console.log(err))

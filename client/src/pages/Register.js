@@ -13,7 +13,7 @@ const Register = () => {
     const [registerPassword, setRegisterPassword] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
-    const statusUrl = useStatusUrl()
+    const { serverUrl } = useStatusUrl()
     let history = useHistory()
 
     const register = () => {
@@ -34,7 +34,7 @@ const Register = () => {
                 time: time
             },
             withCredentials: true,
-            url: `${statusUrl}/api/register`
+            url: `${serverUrl}/api/register`
         })
         .then((res) => console.log(res))
         history.push("/login");
