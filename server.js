@@ -12,8 +12,7 @@ const app = express();
 
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(
   cors({
   // origin: "http://localhost:3000", // Location of the react app we're connected to
@@ -21,7 +20,8 @@ app.use(
   credentials: true
   // allowedHeaders: 'Content-Type,application/text-plain'
 }));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
   session({
@@ -43,7 +43,7 @@ app.use("/api", routes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
 
