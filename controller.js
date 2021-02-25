@@ -62,7 +62,6 @@ exports.postTask = (req, res) => {
 exports.getTasks = (req, res) => {
     console.log(req.params.userId)
     connection.query(`SELECT * FROM tasks WHERE user_id = '${req.params.userId}'`, (err, rows, fields) => {
-        console.log(rows)
         res.send(rows)
     })
 }
