@@ -41,5 +41,8 @@
     "path": "^0.12.7",
     "react-router-dom": "^5.2.0",
     "server": "^1.0.32"
+  },
+  "engines": {
+    "node": "v14.15.4"
   }
 }
