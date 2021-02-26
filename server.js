@@ -27,7 +27,11 @@ app.use(
   session({
     secret: "secretcode", // call whatever, use in the cookie parser
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    // store: someStore
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24
+    }
   })
 );
 
