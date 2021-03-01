@@ -3,6 +3,7 @@ const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+require("./passportConfig")(passport)
 const cookieParser = require("cookie-parser")
 const session = require("express-session");
 const routes = require("./routes");
@@ -40,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
   session({
-    secret: process.env.cookieSecret, // call whatever, use in the cookie parser
+    secret: `${process.env.cookieSecret}`, // call whatever, use in the cookie parser
     resave: true,
     saveUninitialized: true,
     store: sessionStore,
@@ -51,7 +52,7 @@ app.use(
 );
 
 
-require("./passportConfig")(passport)
+
 app.use(cookieParser(process.env.cookieSecret));
 app.use(passport.initialize())
 app.use(passport.session());
