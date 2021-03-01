@@ -1,5 +1,4 @@
 const express = require("express");
-let app = express();
 const router = express.Router();
 const controller = require("./controller");
 
@@ -18,4 +17,4 @@ router.get("/user", (req, res) => {
 })
 
 
-module.exports = app;
+module.exports = router;

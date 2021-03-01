@@ -26,6 +26,7 @@ if(process.env.NODE_ENV === "production") {
   console.log("PRODUCTION")
   origin = "https://task-board-jb.herokuapp.com"
 } else {
+  console.log("DEVELOPMENT")
   origin = "http://localhost:3000"
 }
 
@@ -50,12 +51,12 @@ app.use(
 );
 
 
-
+require("./passportConfig")(passport)
 app.use(cookieParser(process.env.cookieSecret));
 app.use(passport.initialize())
 app.use(passport.session());
 app.use("/api", routes);
-require("./passportConfig")(passport)
+
 
 
 
