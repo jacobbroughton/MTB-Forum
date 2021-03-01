@@ -21,17 +21,17 @@ let options = {
 
 let sessionStore = new MySQLStore(options)
 
-let origin;
-if(process.env.NODE_ENV === "production") {
-  console.log("PRODUCTION")
-  origin = "https://task-board-jb.herokuapp.com"
-} else {
-  origin = "http://localhost:3000"
-}
+// let origin;
+// if(process.env.NODE_ENV === "production") {
+//   console.log("PRODUCTION")
+//   origin = "https://task-board-jb.herokuapp.com"
+// } else {
+//   origin = "http://localhost:3000"
+// }
 
 app.use(
   cors({
-  origin,
+  origin: "https://task-board-jb.herokuapp.com",
   credentials: true
 }));
 app.use(bodyParser.json());
