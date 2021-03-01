@@ -43,7 +43,7 @@ const TaskPage = () => {
         <div className="taskPageFull">
             {
                 tasks.map(task => <>
-                    <h1>{task.main_text}</h1>
+                    <h1 key={task.id}>{task.main_text}</h1>
                 </>)
             }
             <button onClick={() => addTask()}>Add Task</button>
