@@ -8,9 +8,9 @@ router.get("/logout", controller.logout)
 
 router.post("/register", controller.register)
 
-router.get("/gettasks/:userId", controller.getTasks);
+router.get("/getposts", controller.getPosts);
 
-router.post("/posttask", controller.postTask)
+router.post("/newpost", controller.post)
 
 router.get("/user", (req, res) => {
     res.send(req.user)

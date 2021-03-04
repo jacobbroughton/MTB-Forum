@@ -18,21 +18,21 @@ const Navbar = () => {
     const { navListItem } = useRef();
 
     useEffect(() => {
-        
+
     }, [location])
 
     return (
         <nav>
 
             <div className="container">
-                <Link to="/"><h3>Task Board</h3></Link>
+                <Link to="/"><h3>MTB Consumer</h3></Link>
                 <ul>
-                    {/* <li ><Link to="/">Home</Link></li> */}
-                    {   !user && <li><Link to="/register">Register</Link></li> }
+                    {!user && <li><Link to="/register">Register</Link></li>}
+                    <li><Link to="/feed">Feed</Link></li>
                     {
                         user && <>
                             <li><Link to="/profile">Profile</Link></li>
-                            <li><Link to="/tasks">Tasks</Link></li>
+                            <li><Link to="/post">Post</Link></li>
                         </>
                     }
                     {
@@ -42,7 +42,7 @@ const Navbar = () => {
                             <li ref={navListItem}><Link to="/login">Login</Link></li>
                     }
 
-                </ul>                
+                </ul>
                 {
                     user ?
                         <div className="profileNameImageParent">

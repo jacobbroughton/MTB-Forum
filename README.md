@@ -1,5 +1,3 @@
-# MTB-Consumer
-
-User submitted testimonials for mountain bikes
+# MTB-Forum
 
 Created by Jacob Broughton

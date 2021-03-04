@@ -53,15 +53,14 @@ exports.register = (req, res) => {
     })
 }
 
-exports.postTask = (req, res) => {
-    connection.query(`INSERT INTO tasks (user_id, main_text, tags, board, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.mainText}', '${req.body.tags}', '${req.body.board}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, () => {
-        console.log("Task added")
+exports.post = (req, res) => {
+    connection.query(`INSERT INTO posts (user_id, main_text, tldr, bike_year, bike_brand, bike_model, bike_spec, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.mainText}', '${req.body.tldr}', '${req.body.bikeYear}', '${req.body.bikeBrand}', '${req.body.bikeModel}', '${req.body.bikeSpec}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+        if (err) throw err;
     })
 }
 
-exports.getTasks = (req, res) => {
-    console.log(req.params.userId)
-    connection.query(`SELECT * FROM tasks WHERE user_id = '${req.params.userId}'`, (err, rows, fields) => {
+exports.getPosts = (req, res) => {
+    connection.query(`SELECT * FROM posts`, (err, rows, fields) => {
         res.send(rows)
     })
 }

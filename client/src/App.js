@@ -12,11 +12,12 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile"
-import TaskPage from "./pages/TaskPage"
+import ForumPostPage from "./pages/ForumPostPage"
+import Feed from "./pages/Feed"
 import { useUser } from "./contexts/user";
 
-function App() {
 
+function App() {
 
   return (
     <Router>
@@ -31,18 +32,22 @@ function App() {
           </Route>
           <Route path="/login">
             <Login/>
+          </Route>          
+          <Route path="/feed">
+            <Feed/>
           </Route>
           <PrivateRoute path="/profile">
             <Profile/>
           </PrivateRoute>
-          <PrivateRoute path="/tasks">
-            <TaskPage/>
+          <PrivateRoute path="/post">
+            <ForumPostPage/>
           </PrivateRoute>
         </Switch>
       </div>
     </Router>
   );
 }
+
 
 function PrivateRoute({ children, ...rest }) {
   let { user } = useUser();
@@ -64,5 +69,6 @@ function PrivateRoute({ children, ...rest }) {
     />
   )
 }
+
 
 export default App;
