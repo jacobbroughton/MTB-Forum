@@ -25,13 +25,13 @@ const Navbar = () => {
         <nav>
 
             <div className="container">
-                <Link to="/"><h3>MTB Consumer</h3></Link>
+                <Link to="/"><h3>MTB Forum</h3></Link>
                 <ul>
                     {!user && <li><Link to="/register">Register</Link></li>}
                     <li><Link to="/feed">Feed</Link></li>
+                    <li><Link to="/forum">Forum</Link></li>
                     {
                         user && <>
-                            <li><Link to="/profile">Profile</Link></li>
                             <li><Link to="/post">Post</Link></li>
                         </>
                     }
@@ -45,12 +45,12 @@ const Navbar = () => {
                 </ul>
                 {
                     user ?
-                        <div className="profileNameImageParent">
+                        <Link to="/profile" className="profileNameImageParent">
                             <div className="profileImageDiv">
                                 <img className="placeholderImage" src="../../placeholderPerson.png" alt="" />
                             </div>
                             <h4>&nbsp; {user.username}</h4>
-                        </div>
+                        </Link>
                         :
                         <></>
                 }

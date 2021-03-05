@@ -12,7 +12,7 @@ const Home = () => {
             { !user && (
                 <div className="loggedOutView">
                     <div className="loggedOutChild">
-                        <h1>Mountain bike reviews from real owners</h1>
+                        <h1>Mountain Biking Forum</h1>
                         <div className="signupSigninParent">
                             <Link className="homeRegister" to="/register">Create an account</Link>
                             <Link className="homeLogin" to="/login">Sign in</Link>

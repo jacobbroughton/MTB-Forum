@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile"
 import ForumPostPage from "./pages/ForumPostPage"
 import Feed from "./pages/Feed"
+import Forum from "./pages/Forum"
 import { useUser } from "./contexts/user";
 
 
@@ -32,7 +33,10 @@ function App() {
           </Route>
           <Route path="/login">
             <Login/>
-          </Route>          
+          </Route>   
+          <Route path="/forum">
+            <Forum/>
+          </Route>       
           <Route path="/feed">
             <Feed/>
           </Route>
