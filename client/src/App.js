@@ -13,9 +13,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile"
 import ForumPostPage from "./pages/ForumPostPage"
-import Feed from "./pages/Feed"
-import Forum from "./pages/Forum"
 import ThreadFeed from "./pages/ThreadFeed"
+import Forum from "./pages/Forum"
+import CommentFeed from "./pages/CommentFeed"
 import { useUser } from "./contexts/user";
 
 
@@ -39,10 +39,10 @@ function App() {
             <Forum/>
           </Route>            
           <Route path="/forum/:category/:id">
-            <ThreadFeed/>
+            <CommentFeed/>
           </Route>     
           <Route path="/forum/:category">
-            <Feed/>
+            <ThreadFeed/>
           </Route>
 
           <PrivateRoute path="/post/:category">

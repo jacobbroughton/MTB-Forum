@@ -1,56 +1,29 @@
-import axios from "axios"
-import { useState } from "react"
-import { useHistory, useParams } from "react-router-dom"
-import moment from "moment"
+import { useState, useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
 import { useStatusUrl } from "../contexts/statusUrl"
 import { useUser } from "../contexts/user"
 import "./styles/ThreadFeed.scss"
+import axios from "axios"
 
 const ThreadFeed = () => {
 
-    const { serverUrl } = useStatusUrl()
-    const { user } = useUser()
-    const { id } = useParams()
-    const [comments, setComments] = useState([])
-    const [mainText, setMainText] = useState("")
+    const [posts, setPosts] = useState([])
     const [isLoading, setLoading] = useState(true)
 
+    const { serverUrl } = useStatusUrl()
+    const { category } = useParams();
+    const { user } = useUser()
 
-    const getComments = () => {
+    useEffect(() => {
+        console.log("use effect")
         axios
-            .get(`${serverUrl}/api/get-comments/${id}`)
+            .get(`${serverUrl}/api/get-threads/${category}`)
             .then(res => {
-                setComments([...res.data])
+                setPosts([...res.data])
                 setLoading(false)
             })
             .catch(err => console.log(err))
-    }
-
-
-    useState(() => {
-        getComments()
     }, [])
-
-
-
-    const addComment = (e) => {
-        e.preventDefault()
-
-        let date = moment().format('MMMM Do YYYY')
-        let time = moment().format('LT')
-
-        axios
-            .post(`${serverUrl}/api/post-comment`, {
-                threadId: id,
-                userId: user.id,
-                username: user.username,
-                mainText,
-                dateCreated: date,
-                timeCreated: time
-            })
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-    }
 
     if (isLoading) {
         return <div className="App">
@@ -59,25 +32,28 @@ const ThreadFeed = () => {
     }
 
     return (
-        <div className="commentFeed">
+        <div className="threadFeedContainer">
+            <Link className="newPost" to={`/post/${category}`}>New Thread</Link>
+            <h1 className="feedCategory">{category}</h1>
             {
-                comments && comments.map(comment =>
-                    <div className="commentContainer">
-                        <p>{comment.main_text}</p>
-                        <p>{comment.username}</p>
-                        <p>{comment.date_created}</p>
-                        <p>{comment.time_created}</p>
-                    </div>
-                )
-            }
-            {
-                user &&
-                <form onSubmit={(e) => addComment(e)}>
-                    <input onChange={(e) => setMainText(e.target.value)} />
-                    <button>Submit</button>
-                </form>
-            }
+                posts &&
+                <div className="feedList">
+                    {posts.map(post =>
+                        <div className="feedListItem">
+                            <Link to={`/forum/${category}/${post.id}`}><p className="feedItemTitle">{post.title}</p></Link>
+                            <div className="threadInfo">
+                                <span className="usernameParent">Created by &nbsp;
+                                <p className="username">{post.username}</p>
+                                </span>
+                                <p className="feedListDateTime">{post.date_created} {post.time_created}</p>
+                            </div>
 
+                        </div>
+                    )}
+                </div>
+
+
+            }
         </div>
     )
 }
