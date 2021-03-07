@@ -1,25 +1,29 @@
 import { ForumBoards } from "../ForumBoards.js";
 import { Link } from "react-router-dom"
+import "./styles/Forum.scss"
 
 const Forum = () => {
     return (
-        <>
+        <div className="forumContainer">
             {
-                console.log(ForumBoards),
                 ForumBoards.map((board, key) => 
-                    <div>
-                        <h3>{ board.category }</h3>
-                        <ul>
+                    <div className="forumBoardContainer">
+                        <h3 className="boardCategory">{ board.category }</h3>
+                        <ul className="boardList">
                             {
+                                board.includedGroups.length === 0
+                                ? 
+                                <span>No boards to show</span>
+                                :
                                 board.includedGroups.map((group, key) => 
-                                    <li><Link to={`/forum/${group.url}`}>{ group.name }</Link></li>
+                                    <li className="boardListItem"><Link to={`/forum/${group.url}`}>{ group.name }</Link></li>
                                 )
                             }
                         </ul>
                     </div>
                 )
             }
-        </>
+        </div>
     )
 }
 

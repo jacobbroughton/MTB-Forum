@@ -54,13 +54,27 @@ exports.register = (req, res) => {
 }
 
 exports.post = (req, res) => {
-    connection.query(`INSERT INTO posts (user_id, main_text, tldr, bike_year, bike_brand, bike_model, bike_spec, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.mainText}', '${req.body.tldr}', '${req.body.bikeYear}', '${req.body.bikeBrand}', '${req.body.bikeModel}', '${req.body.bikeSpec}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+    connection.query(`INSERT INTO threads (user_id, title, main_text, category, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.title}', '${req.body.mainText}', '${req.body.category}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
         if (err) throw err;
     })
 }
 
-exports.getPosts = (req, res) => {
-    connection.query(`SELECT * FROM posts`, (err, rows, fields) => {
+exports.getThreads = (req, res) => {
+    connection.query(`SELECT * FROM threads WHERE category = '${req.params.category}'`, (err, rows, fields) => {
+        if (err) throw err;
+        res.send(rows)
+    })
+}
+
+exports.postComment = (req, res) => {
+    connection.query(`INSERT INTO comments (thread_id, user_id, username, main_text, date_created, time_created) VALUES ('${req.body.threadId}', '${req.body.userId}', '${req.body.username}', '${req.body.mainText}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+        if (err) throw err;
+    })
+}
+
+exports.getComments = (req, res) => {
+    connection.query(`SELECT * FROM comments WHERE thread_id = '${req.params.threadId}'`, (err, rows, fields) => {
+        if (err) throw err;
         res.send(rows)
     })
 }

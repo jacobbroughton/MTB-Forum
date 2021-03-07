@@ -1,0 +1,11 @@
+.feedCategory{}
+.feedList{
+    .feedListItem{
+        padding: 10px;
+        .feedItemTitle{}
+        .feedListDateTime{}
+    }
+    .feedListItem:nth-child(odd) {
+        background: #a7a7a7;
+    }
+}

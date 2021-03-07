@@ -15,6 +15,7 @@ import Profile from "./pages/Profile"
 import ForumPostPage from "./pages/ForumPostPage"
 import Feed from "./pages/Feed"
 import Forum from "./pages/Forum"
+import ThreadFeed from "./pages/ThreadFeed"
 import { useUser } from "./contexts/user";
 
 
@@ -34,18 +35,25 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>   
-          <Route path="/forum">
+          <Route exact path="/forum">
             <Forum/>
-          </Route>       
-          <Route path="/feed">
+          </Route>            
+          <Route path="/forum/:category/:id">
+            <ThreadFeed/>
+          </Route>     
+          <Route path="/forum/:category">
             <Feed/>
           </Route>
+
+          <PrivateRoute path="/post/:category">
+            <ForumPostPage/>
+          </PrivateRoute>
           <PrivateRoute path="/profile">
             <Profile/>
           </PrivateRoute>
-          <PrivateRoute path="/post">
+          {/* <PrivateRoute path="/post">
             <ForumPostPage/>
-          </PrivateRoute>
+          </PrivateRoute> */}
         </Switch>
       </div>
     </Router>

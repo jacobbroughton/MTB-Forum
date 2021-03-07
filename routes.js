@@ -8,7 +8,12 @@ router.get("/logout", controller.logout)
 
 router.post("/register", controller.register)
 
-router.get("/getposts", controller.getPosts);
+router.get("/get-threads/:category", controller.getThreads);
+
+router.post("/post-comment", controller.postComment)
+
+router.get("/get-comments/:threadId", controller.getComments);
+
 
 router.post("/newpost", controller.post)
 

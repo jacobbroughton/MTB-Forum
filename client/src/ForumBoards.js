@@ -9,39 +9,39 @@ export const ForumBoards = [
         includedGroups: [
             {
                 name: "All Mountain, Enduro & Cross-Country",
-                url: "/all-mountain-enduro-xc"
+                url: "all-mountain-enduro-xc"
             },
             {
                 name: "Downhill",
-                url: "/downhill"
+                url: "downhill"
             },
             {
                 name: "Freeride & Slopestyle",
-                url: "/freeride-slopestyle"
+                url: "freeride-slopestyle"
             },
             {
                 name: "BMX (Street)",
-                url: "/bmx-street"
+                url: "bmx-street"
             },
             {
                 name: "BMX (Racing)",
-                url: "/bmx-racing"
+                url: "bmx-racing"
             },
             {
                 name: "Trials",
-                url: "/trials"
+                url: "trials"
             },
             {
                 name: "Road Cycling & Touring",
-                url: "/road-cycling-and-touring"
+                url: "road-cycling-and-touring"
             },
             {
                 name: "Fat Bikes",
-                url: "/fat-bikes"
+                url: "fat-bikes"
             },
             {
                 name: "eMTB",
-                url: "/emtb"
+                url: "emtb"
             }
         ]
     },
@@ -50,27 +50,27 @@ export const ForumBoards = [
         includedGroups: [
             {
                 name: "Bikes, Parts, and Gear",
-                url: "/bikes-parts-gear"
+                url: "bikes-parts-gear"
             },
             {
                 name: "Fitness, Training, and Health",
-                url: "/fitness-training-health"
+                url: "fitness-training-health"
             },
             {
                 name: "Mechanics Corner",
-                url: "/mechanics-corner"
+                url: "mechanics-corner"
             },
             {
                 name: "Girl Shredders",
-                url: "/girl-shredders"
+                url: "girl-shredders"
             },
             {
                 name: "Stolen Bikes",
-                url: "/stolen-bikes"
+                url: "stolen-bikes"
             },
             {
                 name: "Beginners",
-                url: "/beginners"
+                url: "beginners"
             }
         ]
     }
