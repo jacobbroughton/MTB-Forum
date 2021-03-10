@@ -4,7 +4,7 @@ import axios from "axios"
 import moment from "moment"
 import { useUser } from "../contexts/user"
 import { useStatusUrl } from "../contexts/statusUrl"
-import { ForumBoards } from "../ForumBoards.js";
+import "./styles/ForumPostPage.scss"
 
 const ForumPostPage = () => {
 
@@ -39,11 +39,19 @@ const ForumPostPage = () => {
 
     return(
         <div className="taskPageFull">
-            <h1>Forum Post Page</h1>
-            <form onSubmit={(e) => newForumPost(e)}>
-                <input onChange={e => setTitle(e.target.value)}></input>
-                <textarea onChange={e => setMainText(e.target.value)}></textarea>
-                <button type="submit">Create Post</button>
+            
+            <form className="forumPostForm" onSubmit={(e) => newForumPost(e)}>
+                <h1 className="pageHeader">Create a new thread</h1>
+                <div className="inputParent">
+                    <input className="titleInput" name="title" onChange={e => setTitle(e.target.value)}></input>
+                    <label for="title">Title</label>
+                </div>
+                <div className="inputParent">
+                    <textarea name="mainContent" onChange={e => setMainText(e.target.value)}></textarea>
+                    <label for="mainContent">Main Content</label>
+                </div>
+                
+                <button className="createButton" type="submit">Create Post</button>
             </form>
         </div>
     )

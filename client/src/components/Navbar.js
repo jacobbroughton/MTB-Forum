@@ -27,9 +27,9 @@ const Navbar = () => {
             <div className="container">
                 <Link to="/"><h3>MTB Forum</h3></Link>
                 <ul>
-                    {!user && <li><Link to="/register">Register</Link></li>}
-                    {/* <li><Link to="/feed">Feed</Link></li> */}
                     <li><Link to="/forum">Forum</Link></li>
+                    {!user && <li><Link to="/register">Register</Link></li>}
+                    
                     {
                         user ?
                             <li><button onClick={(e) => logout(() => history.push("/"))}>Logout</button></li>

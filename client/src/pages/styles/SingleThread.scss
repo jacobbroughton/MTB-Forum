@@ -1,0 +1,45 @@
+.singleThreadParent{
+    background: #fff;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
+    padding: 20px 30px;
+.threadInfoParent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    .title{
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        background-color: #dddddd;
+        padding: 10px;
+    }
+    .mainText{
+        white-space: pre-wrap;
+        text-align: start;
+        margin-bottom: 10px;
+        background-color: #eeeeee;
+        padding: 10px;
+    }
+    .usernameParent{
+        display: flex;
+        align-self: flex-end;
+        text-align: end;
+        margin-bottom: 10px;
+        .username{}
+    }
+    .dateTime{
+        display: flex;
+        align-self: flex-end;
+        text-align: end;
+        .time{
+            margin-right: 10px;
+        }
+        .date{}
+    }
+}
+}

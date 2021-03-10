@@ -15,7 +15,7 @@ import Profile from "./pages/Profile"
 import ForumPostPage from "./pages/ForumPostPage"
 import ThreadFeed from "./pages/ThreadFeed"
 import Forum from "./pages/Forum"
-import CommentFeed from "./pages/CommentFeed"
+import SingleThread from "./pages/SingleThread"
 import { useUser } from "./contexts/user";
 
 
@@ -39,7 +39,8 @@ function App() {
             <Forum/>
           </Route>            
           <Route path="/forum/:category/:id">
-            <CommentFeed/>
+            <SingleThread/>
+            {/* <CommentFeed/> */}
           </Route>     
           <Route path="/forum/:category">
             <ThreadFeed/>

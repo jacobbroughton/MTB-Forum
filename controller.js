@@ -66,15 +66,29 @@ exports.getThreads = (req, res) => {
     })
 }
 
+exports.getSingleThread = (req, res) => {
+    connection.query(`SELECT * FROM threads WHERE id = ${req.params.threadId}`, (err, rows, fields) => {
+        if(err) throw err;
+        res.send(rows[0])
+    })
+}
+
 exports.postComment = (req, res) => {
-    connection.query(`INSERT INTO comments (thread_id, user_id, username, main_text, date_created, time_created) VALUES ('${req.body.threadId}', '${req.body.userId}', '${req.body.username}', '${req.body.mainText}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+    connection.query(`INSERT INTO comments (thread_id, user_id, replied_comment_id, username, main_text, date_created, time_created) VALUES ('${req.body.threadId}', '${req.body.userId}', '${req.body.repliedCommentId}', '${req.body.username}', '${req.body.mainText}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
         if (err) throw err;
     })
 }
 
 exports.getComments = (req, res) => {
-    connection.query(`SELECT * FROM comments WHERE thread_id = '${req.params.threadId}'`, (err, rows, fields) => {
+    connection.query(`SELECT * FROM comments WHERE thread_id = '${req.params.threadId}' AND replied_comment_id IS NULL`, (err, rows, fields) => {
         if (err) throw err;
+        res.send(rows)
+    })
+}
+
+exports.getReplies = (req, res) => {
+    connection.query(`SELECT * FROM comments WHERE thread_id = '${req.params.threadId}' AND replied_comment_id IS NOT NULL`, (err, rows, fields) => {
+        if(err) throw err;
         res.send(rows)
     })
 }

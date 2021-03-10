@@ -1,6 +1,8 @@
 .commentsContainer {
     max-width: 1100px;
     margin: 0 auto;
+    border-radius: 5px;
+
     .commentForm {
         padding: 10px;
         display: flex;
@@ -13,9 +15,9 @@
             input {
                 padding: 5px;
             }
-            label{
+            label {
                 margin-top: 5px;
-                font-size: .8rem;
+                font-size: 0.8rem;
                 font-weight: 600;
             }
         }
@@ -25,27 +27,71 @@
         }
     }
     .commentContainer {
-        padding: 10px;
-        border-top: 1px #181818 solid;
+        padding: 10px 10px;
+        // border-top: 1px #181818 solid;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
         text-align: start;
-        .mainText {
-            font-weight: 600;
-        }
-        .commentInfo {
-            align-self: flex-end;
-            .usernameParent {
-                display: flex;
-                .username {
-                    font-weight: 600;
+        background: #ddd;
+        margin-bottom: 10px;
+        .textAndInfoParent {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .mainText {
+                font-weight: 600;
+                // margin-bottom: 10px;
+            }
+            .commentInfo {
+                align-self: flex-end;
+                .usernameParent {
+                    display: flex;
+                    margin-bottom: 5px;
+                    .username {
+                        font-weight: 600;
+                    }
+                }
+
+                .dateTime {
+                    display: flex;
                 }
             }
+        }
 
-            .dateTime {
+        // .comments
+        .replyFormParent {
+            display: none;
+        }
+
+        .repliesFeed {
+            display: flex;
+            width: 100%;
+            .replyContainer {
                 display: flex;
+                justify-content: space-between;
+                padding: 10px 20px;
+                width: 100%;
+                background-color: #eee;
+                margin-top: 10px;
+                align-items: center;
+                .mainText {
+                    font-weight: 600;
+                }
+                .replyInfo {
+                    text-align: end;
+                    .username {
+                        margin-bottom: 10px;
+                    }
+                    .dateTime {
+                        display: flex;
+                        .time {
+                        }
+                        .date {
+                        }
+                    }
+                }
             }
         }
     }

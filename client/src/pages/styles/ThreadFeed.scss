@@ -3,6 +3,11 @@
     flex-direction: column;
     max-width: 1100px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px 30px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
+    
     .newPost {
         align-self: flex-start;
         padding: 5px 10px;
@@ -35,6 +40,7 @@
 
                 .usernameParent {
                     display: flex;
+                    margin-bottom: 5px;
                     .username {
                         font-weight: 700;
                     }
