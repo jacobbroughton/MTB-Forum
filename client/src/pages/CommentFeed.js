@@ -100,43 +100,52 @@ const CommentFeed = ({ id }) => {
                 comments && comments.map((comment, i) =>
                     <div key={i} className="commentContainer">
                         <div className="textAndInfoParent">
-                            <p className="mainText">{comment.main_text}</p>
-                            <div className="commentInfo">
-                                <span className="usernameParent">Posted by &nbsp;
+                            <div className="profilePicUsernameParent">
+                                <div className="profilePicParent">
+                                    <img src="../../placeholderPerson.png" alt={`${comment.username}'s profile picture`} />
+                                </div>
                                 <p className="username">{comment.username}</p>
-                                </span>
+                            </div>
+                            <p className="mainText">{comment.main_text}</p>
+                            {/* <div className="commentInfo">
                                 <div className="dateTime">
                                     <p className="date">{comment.date_created}</p>
                                     &nbsp; &nbsp;
                                     <p className="time">{comment.time_created}</p>
                                 </div>
-                            </div>
+                            </div> */}
+                            {user &&
+                                <>
+                                    <div className="replyButtonDiv">
+                                        <button onClick={() => showReplyInput(comment.id)}>Reply</button>
+                                    </div>  
+                                    <div id={comment.id} className="replyFormParent">
+                                        <form className="replyForm" onSubmit={(e) => addComment(e)}>
+                                            <input placeholder={`Reply to ${comment.username}`} name="mainTextInput" onChange={e => setMainText(e.target.value)} />
+                                        </form>
+                                    </div>
+                                </>
+                            }
                         </div>
-                        {user &&
-                            <>
-                                <div className="commentButtons">
-                                    <button onClick={() => showReplyInput(comment.id)}>Reply</button>
-                                </div>
 
-                                <div id={comment.id} className="replyFormParent">
-                                    <form  className="replyForm" onSubmit={(e) => addComment(e)}>
-                                        <input onChange={e => setMainText(e.target.value)} />
-                                    </form>
-                                </div>
-                            </>
-                        }
 
                         <div className="repliesFeed">
                             {replies.map(rep => rep.replied_comment_id === comment.id && (
                                 <div className="replyContainer">
+                                    <div className="profilePicUsernameParent">
+                                        <div className="profilePicParent">
+                                            <img src="../../placeholderPerson.png" alt={`${comment.username}'s profile picture`} />
+                                        </div>
+                                        <p className="username">{comment.username}</p>
+                                    </div>
                                     <p className="mainText">{rep.main_text}</p>
                                     <div className="replyInfo">
-                                        <p className="username">{rep.username}</p>
-                                        <div className="dateTime">
+
+                                        {/* <div className="dateTime">
                                             <p className="time">{rep.time_created}</p>
                                             &nbsp;
                                             <p className="date">{rep.date_created}</p>
-                                        </div>
+                                        </div> */}
                                     </div>
 
 

@@ -1,8 +1,8 @@
 .singleThreadParent{
-    background: #fff;
+    // background: #f0f2f6;
     max-width: 1100px;
     margin: 0 auto;
-    box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
+    // box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
     padding: 20px 30px;
 .threadInfoParent{
     display: flex;
@@ -15,14 +15,14 @@
     .title{
         margin-bottom: 10px;
         font-size: 1.5rem;
-        background-color: #dddddd;
+        background-color: #fff;
         padding: 10px;
     }
     .mainText{
         white-space: pre-wrap;
         text-align: start;
         margin-bottom: 10px;
-        background-color: #eeeeee;
+        background-color: #fff;
         padding: 10px;
     }
     .usernameParent{
