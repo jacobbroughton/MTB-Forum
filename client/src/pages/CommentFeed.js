@@ -88,8 +88,7 @@ const CommentFeed = ({ id }) => {
                 user &&
                 <form className="commentForm" onSubmit={(e) => addComment(e)}>
                     <div className="commentInputParent">
-                        <label>Comment</label>
-                        <input onChange={(e) => setMainText(e.target.value)} />
+                        <input placeholder="Leave a comment" onChange={(e) => setMainText(e.target.value)} />
 
                     </div>
 

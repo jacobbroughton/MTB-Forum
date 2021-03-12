@@ -1,21 +1,30 @@
 .commentsContainer {
     max-width: 600px;
-    padding: 10px 20px;
-    // margin: 0 auto;
     border-radius: 5px;
     background-color: #fff;
 
     .commentForm {
         padding: 10px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         // flex-direction: column;
+        width: 100%;
         .commentInputParent {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            width: 100%;
             input {
                 padding: 5px;
+                width: 100%;
+                padding: 10px 20px;
+                width: 100%;
+                border-radius: 20px;
+                font-size: 1rem;
+                border: none;
+                margin-bottom: 5px;
+                background: #f0f2f6;
             }
             label {
                 margin-top: 5px;
@@ -25,7 +34,11 @@
         }
 
         button {
-            margin-left: 10px;
+            // margin-left: 10px;
+            margin-top: 10px;
+            border: none;
+            background: none;
+            font-weight: 600;
         }
     }
     .commentContainer {
@@ -52,8 +65,9 @@
                     display: flex;
                     align-items: center;
                     .profilePicParent{
-                        max-width: 35px;
+                        max-width: 30px;
                         img{
+                            border-radius: 100px;
                             width: 100%;
                         }
                     }
@@ -67,9 +81,6 @@
             }
             .commentInfo {
                 align-self: flex-end;
-
-
-
                 .dateTime {
                     display: flex;
                 }
@@ -128,6 +139,7 @@
                         .profilePicParent{
                             max-width: 35px;
                             img{
+                                border-radius: 100px;
                                 width: 100%;
                             }
                         }
