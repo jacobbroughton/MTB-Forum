@@ -25,7 +25,7 @@ let sessionStore = new MySQLStore(options)
 let origin;
 if(process.env.NODE_ENV === "production") {
   console.log("PRODUCTION")
-  origin = "https://task-board-jb.herokuapp.com"
+  origin = "https://mtb-forum.herokuapp.com"
 } else {
   console.log("DEVELOPMENT")
   origin = "http://localhost:3000"
