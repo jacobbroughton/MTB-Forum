@@ -92,3 +92,10 @@ exports.getReplies = (req, res) => {
         res.send(rows)
     })
 }
+
+exports.getBoards = (req, res) => {
+    connection.query(`SELECT * FROM boards`, (err, rows, fields) => {
+        if(err) throw err;
+        res.send(rows)
+    })
+}

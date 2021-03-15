@@ -1,8 +1,31 @@
-import { ForumBoards } from "../ForumBoards.js";
+import { ForumBoards } from "../ForumBoards.js"
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useStatusUrl } from "../contexts/statusUrl"
+import axios from "axios"
 import "./styles/Forum.scss"
+import { useEffect } from "react"
 
 const Forum = () => {
+
+    const { serverUrl } = useStatusUrl()
+    const [boards, setBoards] = useState([])
+
+    const getBoards = () => {
+        axios
+        .get(`${serverUrl}/api/get-boards`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getBoards()
+    }, [])
+
+    useEffect(() => {
+        console.log(boards)
+    }, [boards])
+
     return (
         <div className="forumContainer">
             {

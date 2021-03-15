@@ -8,6 +8,8 @@ router.get("/logout", controller.logout)
 
 router.post("/register", controller.register)
 
+router.get("/get-boards", controller.getBoards)
+
 router.get("/get-threads/:category", controller.getThreads);
 
 router.get("/get-single-thread/:threadId", controller.getSingleThread)
