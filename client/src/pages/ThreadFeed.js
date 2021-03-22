@@ -9,15 +9,20 @@ const ThreadFeed = () => {
 
     const [posts, setPosts] = useState([])
     const [isLoading, setLoading] = useState(true)
+    const [category, setCategory] = useState(null)
 
     const { serverUrl } = useStatusUrl()
-    const { category } = useParams();
+    const { categoryUrl } = useParams();
     const { user } = useUser()
 
     useEffect(() => {
-        console.log("use effect")
         axios
-            .get(`${serverUrl}/api/get-threads/${category}`)
+        .get(`${serverUrl}/api/get-board/${categoryUrl}`)
+        .then(res => setCategory({...res.data}))
+        .catch(err  => console.log(err))
+
+        axios
+            .get(`${serverUrl}/api/get-threads/${categoryUrl}`)
             .then(res => {
                 setPosts([...res.data])
                 setLoading(false)
@@ -37,7 +42,7 @@ const ThreadFeed = () => {
                 user && <Link className="newPost" to={`/post/${category}`}>New Thread</Link>
             }
             
-            <h1 className="feedCategory">{category}</h1>
+            <h1 className="feedCategory">{category.name}</h1>
             {
                 posts &&
                 <div className="feedList">

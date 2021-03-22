@@ -54,8 +54,15 @@ exports.register = (req, res) => {
 }
 
 exports.post = (req, res) => {
-    connection.query(`INSERT INTO threads (user_id, title, main_text, category, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.title}', '${req.body.mainText}', '${req.body.category}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+    connection.query(`INSERT INTO threads (user_id, title, main_text, board, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.title}', '${req.body.mainText}', '${req.body.board}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
         if (err) throw err;
+    })
+}
+
+exports.getBoard = (req, res) => {
+    connection.query(`SELECT * FROM boards WHERE url = '${req.params.url}'`, (err, rows, fields) => {
+        if(err) throw err;
+        res.send(rows[0])
     })
 }
 
@@ -93,9 +100,3 @@ exports.getReplies = (req, res) => {
     })
 }
 
-exports.getBoards = (req, res) => {
-    connection.query(`SELECT * FROM boards`, (err, rows, fields) => {
-        if(err) throw err;
-        res.send(rows)
-    })
-}

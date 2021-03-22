@@ -8,23 +8,33 @@ import { useEffect } from "react"
 
 const Forum = () => {
 
-    const { serverUrl } = useStatusUrl()
-    const [boards, setBoards] = useState([])
+    // const { serverUrl } = useStatusUrl()
+    // const [boards, setBoards] = useState([])
 
-    const getBoards = () => {
-        axios
-        .get(`${serverUrl}/api/get-boards`)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-    }
+    // const getBoards = () => {
 
-    useEffect(() => {
-        getBoards()
-    }, [])
+    //     const byDiscipline = axios.get(`${serverUrl}/api/get-boards/discipline`)
+    //     const byMain = axios.get(`${serverUrl}/api/get-boards/maingroups`)
+    //     const byUserCreated = axios.get(`${serverUrl}/api/get-boards/usercreated`)
 
-    useEffect(() => {
-        console.log(boards)
-    }, [boards])
+    //     axios
+    //     .all([byDiscipline, byMain, byUserCreated])
+    //     .then(axios.spread((...responses) => {
+    //         const responseOne = responses[0].data
+    //         const responseTwo = responses[1].data
+    //         const responseThree = responses[2].data
+    //         console.log(responseOne)
+    //     }))
+    //     .catch(err => console.log(err))
+    // }
+
+    // useEffect(() => {
+    //     getBoards()
+    // }, [])
+
+    // useEffect(() => {
+    //     console.log(boards)
+    // }, [boards])
 
     return (
         <div className="forumContainer">

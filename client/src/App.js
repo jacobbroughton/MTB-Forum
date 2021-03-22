@@ -42,7 +42,7 @@ function App() {
             <SingleThread/>
             {/* <CommentFeed/> */}
           </Route>     
-          <Route path="/forum/:category">
+          <Route path="/forum/:categoryUrl">
             <ThreadFeed/>
           </Route>
 
