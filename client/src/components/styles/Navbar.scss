@@ -20,6 +20,7 @@ nav {
         ul {
             list-style: none;
             display: flex;
+            align-items: center;
             font-size: 1rem;
             color: #fff;
 
@@ -49,27 +50,37 @@ nav {
 }
 
 .profileNameImageParent {
+    position: relative;
     display: flex;
     align-items: center;
-    align-self: flex-end;
-    margin-top: 15px;
+    // align-self: flex-end;
+    // margin-top: 15px;
     border-radius: 10px;
+    padding-left: 10px;
+    max-width: 35px;
 
-    h4{
-        color: #fff;
-    }
+    // h4{
+    //     color: #fff;
+    // }
 
-    .profileImageDiv {
-        max-width: 35px;
-        border-radius: 999px;
-        margin-right: 10px;
-        overflow: hidden;
+    // .profileImageDiv {
+    //     // max-width: 20px;
+    //     border-radius: 999px;
+    //     // margin-right: 10px;
+    //     overflow: hidden;
+    //     border: lightblue 2px solid;
+        
         
 
         .placeholderImage {
-            width: 100%;
+            max-width: 35px;
+            // width: 100%;
             margin-right: 10px;
-            object-fit: cover;
+            // object-fit: cover;
+            // position: absolute;
+            border-radius: 900px;
+            border: #fff solid 2px;
+            // box-shadow: 0px 0px 0px 2px #fff;
         }
-    }
+    
 }

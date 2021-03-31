@@ -32,23 +32,25 @@ const Navbar = () => {
                     
                     {
                         user ?
-                            <li><button onClick={(e) => logout(() => history.push("/"))}>Logout</button></li>
+                            <>
+                            <li><button onClick={(e) => logout(() => history.push("/"))}>Logout</button></li>                        <Link to="/profile" className="profileNameImageParent">
+                            {/* <div className="profileImageDiv"> */}
+                                <img className="placeholderImage" src="../../placeholderPerson.png" alt="" />
+                            {/* </div> */}
+                            {/* <h4>&nbsp; {user.username}</h4> */}
+                        </Link>
+                            </>
                             :
                             <li ref={navListItem}><Link to="/login">Login</Link></li>
                     }
 
                 </ul>
-                {
+                {/* {
                     user ?
-                        <Link to="/profile" className="profileNameImageParent">
-                            <div className="profileImageDiv">
-                                <img className="placeholderImage" src="../../placeholderPerson.png" alt="" />
-                            </div>
-                            <h4>&nbsp; {user.username}</h4>
-                        </Link>
+
                         :
                         <></>
-                }
+                } */}
             </div>
         </nav>
     )

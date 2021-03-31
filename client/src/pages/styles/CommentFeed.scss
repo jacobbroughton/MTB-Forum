@@ -1,15 +1,15 @@
 .commentsContainer {
-    max-width: 600px;
     border-radius: 5px;
     background-color: #fff;
+    margin-top: 50px;
 
     .commentForm {
         padding: 10px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        // flex-direction: column;
         width: 100%;
+        margin-bottom: 50px;
         .commentInputParent {
             display: flex;
             flex-direction: column;
@@ -34,7 +34,6 @@
         }
 
         button {
-            // margin-left: 10px;
             margin-top: 10px;
             border: none;
             background: none;
@@ -42,43 +41,44 @@
         }
     }
     .commentContainer {
-        padding: 10px 10px;
-        border-bottom: 1px rgba(24, 24, 24, 0.1) solid;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         text-align: start;
-        // background: #ddd;
-        // background-color: #f0f2f6;
         margin-bottom: 20px;
         
         .textAndInfoParent {
             display: flex;
-            flex-direction: column;
-            // background-color: #f0f2f6;
-            justify-content: space-between;
+            flex-direction: row;
             align-items: flex-start;
             width: 100%;
-            padding: 10px 20px;
-                .profilePicUsernameParent{
-                    display: flex;
-                    align-items: center;
-                    .profilePicParent{
-                        max-width: 30px;
-                        img{
+                .profilePictureParent{
+                    .profilePicture{
                             border-radius: 100px;
-                            width: 100%;
+                            max-width: 25px;
+                            box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1)
                         }
-                    }
-                    .username {
-                        font-weight: 600;
-                        margin-left: 10px;
-                    } 
                 }
+  
+                .commentBody{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px 10px;
+                    background: #f0f2f6;
+                    border-radius: 5px;
+                    margin-left: 10px;
+
+                        .username {
+                        font-weight: 600;
+                        // margin-left: 10px;
+                    } 
+            
             .mainText {
                 margin-top: 10px;
             }
+                }
+
             .commentInfo {
                 align-self: flex-end;
                 .dateTime {
@@ -88,7 +88,8 @@
         }
 
         .replyButtonDiv{
-            margin-top: 10px;
+            margin: 2px 0px 20px 40px;
+            align-self: start;
             button{
                 border: none;
                 appearance: none;
@@ -101,20 +102,30 @@
         // .comments
         .replyFormParent {
             display: none;
+            // width: calc(100% - 100px);
             width: 100%;
-            margin-top: 20px;
+            // margin-left: 70px;
+            margin-top: 10px;
+            padding-left: 70px;
+            padding-right: 20px;
+            
+
+            
             .replyForm{
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+                
                 input{
-                    padding: 10px 20px;
+                    padding: 8px 12px;
                     width: 100%;
                     border-radius: 20px;
                     font-size: 1rem;
                     border: none;
                     margin-bottom: 5px;
                     background: #f0f2f6;
+                    box-shadow: 0px 0px 5px 0px rgba(24, 24, 24, 0.1);
+                    border: #a7a7a7 solid 1px;
                 }
             }
         }
@@ -125,34 +136,32 @@
             width: 100%;
             .replyContainer {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: 10px 20px;
+                flex-direction: row;
+                padding: 0px 30px;
                 width: 100%;
-                background-color: #fff;
-                margin-top: 10px;
-                margin-left: 20px;
-                align-items: flex-start;                    
-                .profilePicUsernameParent{
+                margin: 5px 5px;
+                align-items: flex-start;    
+                    .profilePicture{
+                        border-radius: 100px;
+                        max-width: 25px;
+                        box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1)
+                    } 
+                    .commentBody{
                         display: flex;
-                        align-items: center;
-                        .profilePicParent{
-                            max-width: 35px;
-                            img{
-                                border-radius: 100px;
-                                width: 100%;
-                            }
-                        }
-                        .username {
+                        flex-direction: column;
+                        padding: 5px 10px;
+                        background: #f0f2f6;
+                        border-radius: 5px;
+                        margin-left: 10px;
+                         .username {
                             font-weight: 600;
-                            margin-left: 10px;
+                            // margin-left: 10px;
                         } 
-                    }
                 .mainText {
-                    // font-weight: 600;
                     margin-top: 10px;
-                    // max-width: 400px;
-                }
+                } 
+                    }              
+  
                 .replyInfo {
                     text-align: end;
 

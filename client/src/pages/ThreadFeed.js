@@ -17,9 +17,9 @@ const ThreadFeed = () => {
 
     useEffect(() => {
         axios
-        .get(`${serverUrl}/api/get-board/${categoryUrl}`)
-        .then(res => setCategory({...res.data}))
-        .catch(err  => console.log(err))
+            .get(`${serverUrl}/api/get-board/${categoryUrl}`)
+            .then(res => setCategory({ ...res.data }))
+            .catch(err => console.log(err))
 
         axios
             .get(`${serverUrl}/api/get-threads/${categoryUrl}`)
@@ -38,25 +38,28 @@ const ThreadFeed = () => {
 
     return (
         <div className="threadFeedContainer">
-            {
-                user && <Link className="newPost" to={`/post/${category}`}>New Thread</Link>
-            }
-            
-            <h1 className="feedCategory">{category.name}</h1>
+
+            <div className="threadFeedHeader">
+                <h1 className="feedCategory">{category.name}</h1>
+                {
+                    user && <Link className="newPost" to={`/post/${category}`}>New Thread</Link>
+                }
+            </div>
+
             {
                 posts &&
                 <div className="feedList">
                     {posts.map(post =>
-                        <div className="feedListItem">
-                            <Link to={`/forum/${category}/${post.id}`}><p className="feedItemTitle">{post.title}</p></Link>
+                        <Link className="feedListItem" to={`/forum/${categoryUrl}/${post.id}`}>
+                            <p className="feedItemTitle">{post.title}</p>
                             <div className="threadInfo">
                                 <span className="usernameParent">Created by &nbsp;
                                 <p className="username">{post.username}</p>
                                 </span>
                                 <p className="feedListDateTime">{post.date_created} {post.time_created}</p>
                             </div>
-
-                        </div>
+</Link>
+                        
                     )}
                 </div>
 

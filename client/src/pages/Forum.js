@@ -49,7 +49,7 @@ const Forum = () => {
                                 <span>No boards to show</span>
                                 :
                                 board.includedGroups.map((group, key) => 
-                                    <li className="boardListItem"><Link to={`/forum/${group.url}`}>{ group.name }</Link></li>
+                                    <Link to={`/forum/${group.url}`}><li className="boardListItem">{ group.name }</li></Link>
                                 )
                             }
                         </ul>

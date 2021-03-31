@@ -6,13 +6,16 @@
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
     border-radius: 5px;
     background: #fff;
-    max-width: 600px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px 30px;
     margin-top: 50px;
+    
 
     .forumBoardContainer {
         display: flex;
+        // background-color: black;
+        margin-bottom: 100px;
         flex-direction: column;
         align-items: flex-start;
         padding: 20px;
@@ -23,14 +26,23 @@
             margin-bottom: 5px;
         }
         .boardList {
+            width: 100%;
+            
             .boardListItem {
+                padding: 8px 10px;
+                border: 1px lightgrey solid;
                 text-align: start;
                 list-style: none;
                 margin: 5px 0;
+                transition: all .1s linear;
             }
             .boardListItem:hover {
-                text-decoration: underline;
+                // text-decoration: underline;
+                box-shadow: 0px 0px 0px 1px grey;
+                background: #f7f7f7;
+                padding-left: 8px;
             }
+            
         }
     }
 }

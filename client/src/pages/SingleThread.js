@@ -34,6 +34,7 @@ const SingleThread = () => {
             <div className="threadInfoParent">
                 <h1 className="title">{topic.title}</h1>
                 <p className="mainText">{topic.mainText}</p>
+                <hr/>
                 <span className="usernameParent">
                     Posted by &nbsp;<p className="username">{topic.username}</p>
                 </span>

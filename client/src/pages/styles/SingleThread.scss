@@ -1,6 +1,6 @@
 .singleThreadParent{
     background: #fff;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 20px 30px;
     margin-top: 50px;
@@ -17,6 +17,7 @@
         font-size: 1.5rem;
         // background-color: #fff;
         padding: 10px;
+        text-align: start;
     }
     .mainText{
         white-space: pre-wrap;
@@ -27,14 +28,14 @@
     }
     .usernameParent{
         display: flex;
-        align-self: flex-end;
-        text-align: end;
+        align-self: flex-start;
+        text-align: start;
         margin-bottom: 10px;
         .username{}
     }
     .dateTime{
         display: flex;
-        align-self: flex-end;
+        align-self: flex-start;
         text-align: end;
         .time{
             margin-right: 10px;

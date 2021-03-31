@@ -21,6 +21,8 @@ import { useUser } from "./contexts/user";
 
 function App() {
 
+  const { user } = useUser();
+
   return (
     <Router>
       <div className="App">
