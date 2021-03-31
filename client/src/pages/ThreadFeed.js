@@ -40,7 +40,7 @@ const ThreadFeed = () => {
         <div className="threadFeedContainer">
 
             <div className="threadFeedHeader">
-                <h1 className="feedCategory">{category.name}</h1>
+                { category && <h1 className="feedCategory">{category.name}</h1> }
                 {
                     user && <Link className="newPost" to={`/post/${category}`}>New Thread</Link>
                 }
