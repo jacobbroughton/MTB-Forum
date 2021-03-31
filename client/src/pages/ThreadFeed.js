@@ -7,7 +7,7 @@ import axios from "axios"
 
 const ThreadFeed = () => {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setThreads] = useState([])
     const [isLoading, setLoading] = useState(true)
     const [category, setCategory] = useState(null)
 
@@ -15,20 +15,24 @@ const ThreadFeed = () => {
     const { categoryUrl } = useParams();
     const { user } = useUser()
 
-    useEffect(() => {
-        axios
-            .get(`${serverUrl}/api/get-board/${categoryUrl}`)
-            .then(res => setCategory({ ...res.data }))
-            .catch(err => console.log(err))
+    const getBoard = axios.get(`${serverUrl}/api/get-board/${categoryUrl}`)
+    const getThreads =  axios.get(`${serverUrl}/api/get-threads/${categoryUrl}`)
 
+    const getBoardAndThreads = () => {
         axios
-            .get(`${serverUrl}/api/get-threads/${categoryUrl}`)
-            .then(res => {
-                setPosts([...res.data])
+            .all([getBoard, getThreads]).then(axios.spread((...responses) => {
+                const responseOne = responses[0]
+                const responseTwo = responses[1]
+                setCategory({ ...responseOne.data })
+                setThreads([...responseTwo.data])
                 setLoading(false)
-            })
-            .catch(err => console.log(err))
+            })).catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getBoardAndThreads()
     }, [])
+
 
     if (isLoading) {
         return <div className="App">
