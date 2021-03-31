@@ -13,6 +13,7 @@ const SingleThread = () => {
     const { user } = useUser()
     const { id } = useParams()
     const [topic, setTopic] = useState({})
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         axios
