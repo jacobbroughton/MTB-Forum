@@ -18,24 +18,33 @@ const SingleThread = () => {
     useEffect(() => {
         axios
         .get(`${serverUrl}/api/get-single-thread/${id}`)
-        .then(res => setTopic({
+        .then(res => {
+            setTopic({
             title: res.data.title,
             mainText: res.data.main_text,
             username: res.data.username,
             category: res.data.category,
             dateCreated: res.data.date_created,
             timeCreated: res.data.time_created
-        }))
+        })
+        setLoading(false)
+    })
         .catch(err => console.log(err))
 
     }, [])
+
+    if (isLoading) {
+        return <div className="App">
+            <span></span>
+        </div>
+    }
+
 
     return (
         <div className="singleThreadParent">
             <div className="threadInfoParent">
                 <h1 className="title">{topic.title}</h1>
                 <p className="mainText">{topic.mainText}</p>
-                <hr/>
                 <span className="usernameParent">
                     Posted by &nbsp;<p className="username">{topic.username}</p>
                 </span>

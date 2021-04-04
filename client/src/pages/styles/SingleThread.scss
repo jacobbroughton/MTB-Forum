@@ -2,7 +2,7 @@
     // background: #fff;
     max-width: 680px;
     // margin: 0 auto;
-    padding: 20px 30px;
+    padding: 0px 30px;
     margin-top: 50px;
 .threadInfoParent{
     display: flex;
@@ -13,10 +13,10 @@
     margin: 0 auto;
     margin-bottom: 10px;
     .title{
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
         font-size: 1.5rem;
         // background-color: #fff;
-        padding: 10px;
+        padding: 0 10px;
         text-align: start;
     }
     .mainText{
@@ -28,15 +28,17 @@
     }
     .usernameParent{
         display: flex;
-        align-self: flex-start;
+        align-self: flex-end;
         text-align: start;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
         .username{}
     }
     .dateTime{
         display: flex;
-        align-self: flex-start;
+        align-self: flex-end;
         text-align: end;
+        font-size: 0.85rem;
         .time{
             margin-right: 10px;
         }

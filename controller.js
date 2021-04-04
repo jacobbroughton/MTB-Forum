@@ -24,7 +24,7 @@ exports.login = (req, res, next) => {
         if (!user) console.log("No User Exists")
         else {
             req.logIn(user, (err) => {
-                if(err) throw err;
+                if (err) throw err;
                 res.send("Successfully Authenticated");
             })
         }
@@ -35,33 +35,37 @@ exports.logout = (req, res, next) => {
     console.log("logging out " + req.user.username)
     req.logout()
     req.session.destroy((err) => {
-        if(err) return (next(err));
+        if (err) return (next(err));
         return res.send({ authenticated: req.isAuthenticated() })
     })
 }
 
 exports.register = (req, res) => {
-    connection.query(`SELECT * FROM users WHERE username = '${req.body.username}' LIMIT 1 `, 
-    async (err, rows, fields) => {
-        if (err) throw err;
-        if (rows[0]) { console.log("USER EXISTS") }
-        if (!rows[0]) {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10)
-            connection.query(`INSERT INTO users (username, password, first_name, last_name, profile_picture, date_created, time_created) VALUES ('${req.body.username}', '${hashedPassword}', '${req.body.firstName}', '${req.body.lastName}', '${req.body.profilePicture}', '${req.body.date}', '${req.body.time}')`)
-            console.log("User Added")
-        }
-    })
+    connection.query(`SELECT * FROM users WHERE username = '${req.body.username}' LIMIT 1 `,
+        async (err, rows, fields) => {
+            if (err) throw err;
+            if (rows[0]) { console.log("USER EXISTS") }
+            if (!rows[0]) {
+                const hashedPassword = await bcrypt.hash(req.body.password, 10)
+                connection.query(`INSERT INTO users (username, password, first_name, last_name, profile_picture, date_created, time_created) VALUES ('${req.body.username}', '${hashedPassword}', '${req.body.firstName}', '${req.body.lastName}', '${req.body.profilePicture}', '${req.body.date}', '${req.body.time}')`)
+                console.log("User Added")
+            }
+        })
 }
 
 exports.post = (req, res) => {
-    connection.query(`INSERT INTO threads (user_id, title, main_text, board, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.title}', '${req.body.mainText}', '${req.body.board}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
-        if (err) throw err;
+    // console.log(req.body)
+    connection.query(`INSERT INTO threads (user_id, username, title, main_text, category, date_created, time_created) VALUES ('${req.body.userId}', '${req.body.username}', '${req.body.title}', '${req.body.mainText}', '${req.body.category}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
+        if (err) {
+            console.log(err)
+            throw err
+        };
     })
 }
 
-exports.getBoard = (req, res) => {
-    connection.query(`SELECT * FROM boards WHERE url = '${req.params.url}'`, (err, rows, fields) => {
-        if(err) throw err;
+exports.getCategories = (req, res) => {
+    connection.query(`SELECT * FROM categoriess WHERE url = '${req.params.url}'`, (err, rows, fields) => {
+        if (err) throw err;
         res.send(rows[0])
     })
 }
@@ -75,7 +79,7 @@ exports.getThreads = (req, res) => {
 
 exports.getSingleThread = (req, res) => {
     connection.query(`SELECT * FROM threads WHERE id = ${req.params.threadId}`, (err, rows, fields) => {
-        if(err) throw err;
+        if (err) throw err;
         res.send(rows[0])
     })
 }
@@ -95,7 +99,7 @@ exports.getComments = (req, res) => {
 
 exports.getReplies = (req, res) => {
     connection.query(`SELECT * FROM comments WHERE thread_id = '${req.params.threadId}' AND replied_comment_id IS NOT NULL`, (err, rows, fields) => {
-        if(err) throw err;
+        if (err) throw err;
         res.send(rows)
     })
 }

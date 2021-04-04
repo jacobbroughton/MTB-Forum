@@ -8,7 +8,7 @@ router.get("/logout", controller.logout)
 
 router.post("/register", controller.register)
 
-router.get("/get-board/:url", controller.getBoard)
+router.get("/get-categories/:url", controller.getCategories)
 
 router.get("/get-threads/:category", controller.getThreads);
 

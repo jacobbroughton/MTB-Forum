@@ -8,8 +8,12 @@ export const ForumBoards = [
         category: "Discipline",
         includedGroups: [
             {
-                name: "All Mountain, Enduro & Cross-Country",
-                url: "all-mountain-enduro-xc"
+                name: "All Mountain - Enduro",
+                url: "all-mountain-enduro"
+            },
+            {
+                name: "Cross Country - XC",
+                url: "cross-country-xc"
             },
             {
                 name: "Downhill",
@@ -53,7 +57,7 @@ export const ForumBoards = [
                 url: "bikes-parts-gear"
             },
             {
-                name: "Fitness, Training, and Health",
+                name: "Fitness, Training, & Health",
                 url: "fitness-training-health"
             },
             {

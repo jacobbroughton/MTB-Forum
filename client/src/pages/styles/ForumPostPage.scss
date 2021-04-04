@@ -1,7 +1,7 @@
 .taskPageFull {
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
     border-radius: 5px;
-    background: #fff;
+    // background: #fff;
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px 30px;
@@ -14,7 +14,7 @@
         justify-content: center;
         align-items: flex-start;
         max-width: 700px;
-        background: rgba(255, 255, 255, 0.5);
+        // background: rgba(255, 255, 255, 0.5);
         // box-shadow: 0px 0px 10px rgba(24,24,24, 0.1);
         // padding: 20px 30px;
         border-radius: 5px;    
@@ -47,8 +47,10 @@
             appearance: none;
             border: none;
             padding: 5px 10px;
-            background: #181818;
-            color: #fff;
+            background: #fff;
+            color: #181818;
+            margin-top: 10px;
+            font-weight: 600;
         }
     }
 }

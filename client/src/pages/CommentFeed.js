@@ -77,8 +77,8 @@ const CommentFeed = ({ id }) => {
 
 
     if (isLoading) {
-        return <div className="App">
-            <h1>Loading...</h1>
+        return <div className="commentsLoading">
+            <span></span>
         </div>
     }
 

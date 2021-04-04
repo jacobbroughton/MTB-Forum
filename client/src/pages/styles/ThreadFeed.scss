@@ -5,34 +5,37 @@
     border-radius: 5px;
     // background: #fff;
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 30px;
+    // margin: 0 auto;
+    padding: 0px 30px;
     margin-top: 50px;
+    width: 100%;
 
     .threadFeedHeader{
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         .newPost {
         // align-self: flex-start;
-        padding: 5px 10px;
-        background: #fff;
-        color: #1a1a1d;
+        // padding: 2px 10px;
+        // background: #fff;
+        color: #fff;
         font-weight: 500;
         // margin: 10px;
-        margin-left: 20px;
+        // margin-left: 20px;
+        margin-bottom: 10px;
+        // margin-left: 10px;
         transition: all .15s linear;
         }
 
         .newPost:hover{
-            box-shadow: inset 0 0 0 2px lightgrey;
-
+            // box-shadow: inset 0 0 0 2px lightgrey;
+            text-decoration: underline;
         }
 
         .feedCategory {
             align-self: flex-start;
-            padding: 10px;
+            padding: 0 10px 10px 0;
         }
     }
     
@@ -45,14 +48,14 @@
             padding: 5px 10px;
             margin-bottom: 10px;
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;;
             justify-content: space-between;
-            border: 1px #a7a7a7 solid;
+            border: 1px #a7a7a7ab solid;
             transition: all .15s linear;
 
             .feedItemTitle {
-                font-weight: 600;
+                font-weight: 500;
                 text-align: start;
                 color: #fff;
             }
@@ -60,12 +63,14 @@
             .threadInfo {
                 align-self: flex-end;
                 display: flex;
-                flex-direction: column;
-                align-items: flex-end;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 5px;
 
                 .usernameParent {
                     display: flex;
-                    margin-bottom: 5px;
+                    // margin-bottom: 5px;
+                    margin-right: 5px;
                     font-size: .8rem;
 
                     .username {
@@ -86,6 +91,8 @@
         .feedListItem:hover{
             // background: #f7f7f7;
             border: #fff solid 1px;
+            background: #4e4e50;
+            padding-left: 15px;
         }
     }
 }

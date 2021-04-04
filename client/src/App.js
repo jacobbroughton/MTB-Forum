@@ -14,7 +14,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile"
 import ForumPostPage from "./pages/ForumPostPage"
 import ThreadFeed from "./pages/ThreadFeed"
-import Forum from "./pages/Forum"
+import ForumWrapper from "./pages/ForumWrapper"
 import SingleThread from "./pages/SingleThread"
 import { useUser } from "./contexts/user";
 
@@ -36,17 +36,22 @@ function App() {
           </Route>
           <Route path="/login">
             <Login/>
-          </Route>   
-          <Route exact path="/forum">
-            <Forum/>
-          </Route>            
-          <Route path="/forum/:category/:id">
+          </Route> 
+              {/* <Route path="/forum/:category/:id">
             <SingleThread/>
             {/* <CommentFeed/> */}
-          </Route>     
+          {/* </Route>    */}
+                    <Route path="/forum/:categoryUrl/:id">
+            <ForumWrapper forumView={'single'}/>
+          </Route>            
+    
           <Route path="/forum/:categoryUrl">
+            <ForumWrapper forumView={'category'}/>
+          </Route>      
+
+          {/* <Route path="/forum/:categoryUrl">
             <ThreadFeed/>
-          </Route>
+          </Route> */}
 
           <PrivateRoute path="/post/:category">
             <ForumPostPage/>

@@ -24,6 +24,7 @@ const ForumPostPage = () => {
         axios
         .post(`${serverUrl}/api/newpost`, {
             userId: user.id,
+            username: user.username,
             title,
             mainText,
             category,
