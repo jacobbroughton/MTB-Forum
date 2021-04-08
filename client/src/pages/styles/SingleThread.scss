@@ -1,10 +1,20 @@
-.singleThreadParent{
-    // background: #fff;
-    max-width: 680px;
-    // margin: 0 auto;
-    padding: 0px 30px;
-    margin-top: 50px;
-.threadInfoParent{
+.singleThreadParent {
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  width: 100%;
+  padding: 0px 30px;
+  margin-top: 50px;
+  .backButton {
+    text-align: start;
+    color: #fff;
+    padding: 0 0 10px 10px;
+    font-size: 0.9rem;
+  }
+  .backButton:hover {
+    text-decoration: underline;
+  }
+  .threadInfoParent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -12,37 +22,36 @@
     max-width: 1100px;
     margin: 0 auto;
     margin-bottom: 10px;
-    .title{
-        // margin-bottom: 10px;
-        font-size: 1.5rem;
-        // background-color: #fff;
-        padding: 0 10px;
-        text-align: start;
+    .title {
+      font-size: 1.5rem;
+      padding: 0 10px;
+      text-align: start;
     }
-    .mainText{
-        white-space: pre-wrap;
-        text-align: start;
-        margin-bottom: 10px;
-        // background-color: #fff;
-        padding: 10px;
+    .mainText {
+      white-space: pre-wrap;
+      text-align: start;
+      margin-bottom: 10px;
+      padding: 10px;
     }
-    .usernameParent{
-        display: flex;
-        align-self: flex-end;
-        text-align: start;
-        margin-bottom: 5px;
-        font-size: 0.85rem;
-        .username{}
+    .usernameParent {
+      display: flex;
+      align-self: flex-end;
+      text-align: start;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+      .username {
+      }
     }
-    .dateTime{
-        display: flex;
-        align-self: flex-end;
-        text-align: end;
-        font-size: 0.85rem;
-        .time{
-            margin-right: 10px;
-        }
-        .date{}
+    .dateTime {
+      display: flex;
+      align-self: flex-end;
+      text-align: end;
+      font-size: 0.85rem;
+      .time {
+        margin-right: 10px;
+      }
+      .date {
+      }
     }
-}
+  }
 }

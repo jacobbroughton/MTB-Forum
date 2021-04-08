@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="container">
                 <Link to="/"><h3>MTB Forum</h3></Link>
                 <ul>
-                    <li><Link to="/forum">Forum</Link></li>
+                    <li><Link to="/forum/all">Forum</Link></li>
                     {!user && <li><Link to="/register">Register</Link></li>}
                     
                     {

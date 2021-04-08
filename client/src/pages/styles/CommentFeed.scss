@@ -1,193 +1,186 @@
-.commentsLoading{
-    text-align: start;
+.commentsLoading {
+  text-align: start;
 }
 
 .commentsContainer {
-    border-radius: 5px;
-    // background-color: #fff;
-    color: #fff;
-    margin-top: 50px;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 50px;
 
-    .commentForm {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  .commentForm {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 50px;
+    .commentInputParent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      .commentTextarea {
         width: 100%;
-        margin-bottom: 50px;
-        .commentInputParent {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            input {
-                padding: 5px;
-                width: 100%;
-                padding: 10px 20px;
-                width: 100%;
-                border-radius: 20px;
-                font-size: 1rem;
-                border: none;
-                margin-bottom: 5px;
-                background: #f0f2f6;
-            }
-            label {
-                margin-top: 5px;
-                font-size: 0.8rem;
-                font-weight: 600;
-            }
-        }
-
-        button {
-            margin-top: 10px;
-            border: none;
-            background: none;
-            font-weight: 600;
-            color: #fff;
-        }
-        button:hover{
-            text-decoration: underline;
-        }
+        padding: 8px 20px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 1rem;
+        border: none;
+        margin-bottom: 5px;
+        background: #f0f2f6;
+        resize: none;
+      }
+      label {
+        margin-top: 5px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
     }
-    .commentContainer {
+
+    button {
+      margin-top: 10px;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: #fff;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+  }
+  .commentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    margin-bottom: 5px;
+
+    .textAndInfoParent {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 5px;
+      .profilePictureParent {
+        .profilePicture {
+          border-radius: 100px;
+          max-width: 25px;
+          box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1);
+        }
+      }
+
+      .commentBody {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        text-align: start;
-        margin-bottom: 5px;
-        
-        .textAndInfoParent {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 5px;
-                .profilePictureParent{
-                    .profilePicture{
-                            border-radius: 100px;
-                            max-width: 25px;
-                            box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1)
-                        }
-                }
-  
-                .commentBody{
-                    display: flex;
-                    flex-direction: column;
-                    padding: 5px 10px;
-                    background: #4e4e50;
-                    border-radius: 5px;
-                    margin-left: 10px;
+        padding: 5px 10px;
+        background: #4e4e50;
+        border-radius: 5px;
+        margin-left: 10px;
+        white-space: pre-wrap;
 
-                        .username {
-                        font-weight: 600;
-                        // margin-left: 10px;
-                    } 
-            
-            .mainText {
-                margin-top: 10px;
-            }
-                }
-
-            .commentInfo {
-                align-self: flex-end;
-                .dateTime {
-                    display: flex;
-                }
-            }
+        .username {
+          font-weight: 600;
         }
 
-        .replyButtonDiv{
-            margin: 2px 0px 20px 40px;
-            align-self: start;
-            button{
-                border: none;
-                appearance: none;
-                background: none;
-                font-weight: 600;
-                font-size: .8rem;
-                color: #fff;
-            }
-            button:hover{
-                text-decoration: underline;
-            }
+        .mainText {
+          margin-top: 10px;
         }
+      }
 
-        // .comments
-        .replyFormParent {
-            display: none;
-            // width: calc(100% - 100px);
-            width: 100%;
-            // margin-left: 70px;
-            margin-top: 10px;
-            padding-left: 70px;
-            padding-right: 20px;
-            
-
-            
-            .replyForm{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                
-                input{
-                    padding: 8px 12px;
-                    width: 100%;
-                    border-radius: 20px;
-                    font-size: 1rem;
-                    border: none;
-                    margin-bottom: 5px;
-                    background: #f0f2f6;
-                    box-shadow: 0px 0px 5px 0px rgba(24, 24, 24, 0.1);
-                    border: #a7a7a7 solid 1px;
-                }
-            }
+      .commentInfo {
+        align-self: flex-end;
+        .dateTime {
+          display: flex;
         }
-
-        .repliesFeed {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            .replyContainer {
-                display: flex;
-                flex-direction: row;
-                padding: 0px 30px;
-                width: 100%;
-                margin: 5px 5px;
-                align-items: flex-start;    
-                    .profilePicture{
-                        border-radius: 100px;
-                        max-width: 25px;
-                        box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1)
-                    } 
-                    .commentBody{
-                        display: flex;
-                        flex-direction: column;
-                        padding: 5px 10px;
-                        background: #4e4e50;
-                        border-radius: 5px;
-                        margin-left: 10px;
-                         .username {
-                            font-weight: 600;
-                            // margin-left: 10px;
-                        } 
-                .mainText {
-                    margin-top: 10px;
-                } 
-                    }              
-  
-                .replyInfo {
-                    text-align: end;
-
-                    .dateTime {
-                        display: flex;
-                        .time {
-                        }
-                        .date {
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+
+    .replyButtonDiv {
+      margin: 2px 0px 5px 40px;
+      align-self: start;
+      button {
+        border: none;
+        appearance: none;
+        background: none;
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: #fff;
+      }
+      button:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .replyFormParent {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      padding-left: 70px;
+      padding-right: 20px;
+
+      .replyForm {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+          padding: 8px 12px;
+          width: 100%;
+          border-radius: 20px;
+          font-size: 1rem;
+          border: none;
+          margin-bottom: 5px;
+          background: #f0f2f6;
+          box-shadow: 0px 0px 5px 0px rgba(24, 24, 24, 0.1);
+          border: #a7a7a7 solid 1px;
+        }
+      }
+    }
+
+    .repliesFeed {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .replyContainer {
+        display: flex;
+        flex-direction: row;
+        padding: 0px 30px;
+        width: 100%;
+        margin: 5px 5px;
+        align-items: flex-start;
+        .profilePicture {
+          border-radius: 100px;
+          max-width: 25px;
+          box-shadow: 0px 0px 10px 0px rgba(24, 24, 24, 0.1);
+        }
+        .commentBody {
+          display: flex;
+          flex-direction: column;
+          padding: 5px 10px;
+          background: #4e4e50;
+          border-radius: 5px;
+          margin-left: 10px;
+          .username {
+            font-weight: 600;
+          }
+          .mainText {
+            margin-top: 10px;
+          }
+        }
+
+        .replyInfo {
+          text-align: end;
+
+          .dateTime {
+            display: flex;
+            .time {
+            }
+            .date {
+            }
+          }
+        }
+      }
+    }
+  }
 }

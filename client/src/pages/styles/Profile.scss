@@ -1,0 +1,13 @@
+.profileWrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .username {
+  }
+
+  .profilePicture {
+    max-width: 100px;
+  }
+}

@@ -87,6 +87,7 @@ exports.getSingleThread = (req, res) => {
 exports.postComment = (req, res) => {
     connection.query(`INSERT INTO comments (thread_id, user_id, replied_comment_id, username, main_text, date_created, time_created) VALUES (${req.body.threadId}, ${req.body.userId}, ${req.body.repliedCommentId}, '${req.body.username}', '${req.body.mainText}', '${req.body.dateCreated}', '${req.body.timeCreated}')`, (err, rows, fields) => {
         if (err) throw err;
+        res.send(fields)
     })
 }
 
