@@ -32,14 +32,14 @@ const ThreadFeed = ({ category }) => {
           .get(`${serverUrl}/api/get-threads/${categoryUrl}/${lastId}`)
           .then((res) => {
             setThreads([...res.data]);
-            res.data && setLastId(res.data[res.data.length-1].id)
+  
           })
           .catch((err) => console.log(err));
     }
   };
 
   const setTheLastId = () => {
-    
+
   }
 
   useEffect(() => {
