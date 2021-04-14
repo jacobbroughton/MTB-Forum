@@ -36,7 +36,7 @@ const ForumPostPage = () => {
   };
 
   return (
-    <div className="taskPageFull">
+    <div className="ForumPostPage">
       <form className="forumPostForm" onSubmit={(e) => newForumPost(e)}>
         <h1 className="pageHeader">Create a new thread</h1>
         <div className="inputParent">

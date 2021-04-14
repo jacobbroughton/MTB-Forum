@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="container">
                 <Link to="/"><h3>MTB Forum</h3></Link>
                 <ul>
-                    <li><Link to="/forum/all">Forum</Link></li>
+                    <li><Link to="/forum/uc-recent">Forum</Link></li>
                     {!user && <li><Link to="/register">Register</Link></li>}
                     
                     {
@@ -35,7 +35,7 @@ const Navbar = () => {
                             <>
                             <li><button onClick={(e) => logout(() => history.push("/"))}>Logout</button></li>                        <Link to="/profile" className="profileNameImageParent">
                             {/* <div className="profileImageDiv"> */}
-                                <img className="placeholderImage" src="../../placeholderPerson.png" alt="" />
+                                <img className="placeholderImage" src="https://mtbforum.s3.amazonaws.com/placeholderPerson.png" alt="" />
                             {/* </div> */}
                             {/* <h4>&nbsp; {user.username}</h4> */}
                         </Link>

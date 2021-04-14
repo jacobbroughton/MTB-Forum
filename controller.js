@@ -64,17 +64,36 @@ exports.post = (req, res) => {
 }
 
 exports.getCategories = (req, res) => {
-    connection.query(`SELECT * FROM categoriess WHERE url = '${req.params.url}'`, (err, rows, fields) => {
+    connection.query(`SELECT * FROM categories WHERE url = '${req.params.url}'`, (err, rows, fields) => {
         if (err) throw err;
         res.send(rows[0])
     })
 }
 
 exports.getThreads = (req, res) => {
-    connection.query(`SELECT * FROM threads WHERE category = '${req.params.category}'`, (err, rows, fields) => {
+    // let offset;
+    // req.params.page === 1 ? offset = 0 : offset = req.params.page * 10;
+    // console.log(offset)
+    connection.query(`SELECT * FROM threads WHERE category = '${req.params.category}' AND id > ${req.params.lastId} LIMIT 20`, (err, rows, fields) => {
         if (err) throw err;
         res.send(rows)
     })
+}
+
+exports.getThreadCount = (req, res) => {
+    connection.query(`SELECT COUNT(*) as "count" FROM threads WHERE category = '${req.params.category}'` , (err, rows, fields) => {
+        if (err) throw err;
+        res.send(rows[0])
+    })
+}
+
+exports.getRecentThreads = (req, res) => {
+    // let offset = req.params.page * 20
+    connection.query(`SELECT * FROM threads ORDER BY id DESC LIMIT 20 OFFSET ${req.params.offset}`, (err, rows) => {
+        if (err) throw err;
+        res.send(rows)
+    })
+    
 }
 
 exports.getSingleThread = (req, res) => {

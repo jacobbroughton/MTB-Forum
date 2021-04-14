@@ -7,7 +7,7 @@ import "./styles/ForumWrapper.scss";
 
 const ForumWrapper = ({ forumView }) => {
   const { id } = useParams();
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("uc-recent");
 
   return (
     <div className="forumWrapper">

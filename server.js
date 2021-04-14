@@ -7,6 +7,7 @@ require("./passportConfig")(passport)
 const cookieParser = require("cookie-parser")
 const session = require("express-session");
 const routes = require("./routes");
+require('newrelic');
 require("dotenv").config();
 var MySQLStore = require('express-mysql-session')(session);
 const app = express();

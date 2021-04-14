@@ -16,7 +16,7 @@ const CategoryList = ({ setCategory }) => {
                 <Link
                   onClick={() => setCategory(group.name)}
                   key={key}
-                  to={`/forum/${group.url}`}
+                  to={`/forum/${group.url}/1`}
                 >
                   <li className="boardListItem">{group.name}</li>
                 </Link>

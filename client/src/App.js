@@ -35,11 +35,12 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/forum/:categoryUrl/:id">
+
+          <Route exact path="/forum/:categoryUrl/single/:id">
             <ForumWrapper forumView={"single"} />
           </Route>
 
-          <Route path="/forum/:categoryUrl">
+          <Route path="/forum/:categoryUrl/:page">
             <ForumWrapper forumView={"category"} />
           </Route>
 

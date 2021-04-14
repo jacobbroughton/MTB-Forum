@@ -1,8 +1,12 @@
 export const ForumBoards = [
     {
         category: "User Created",
-        includedGroups: []
-        // url: "/usercreated"
+        includedGroups: [
+            {
+                name: "Recent",
+                url: "uc-recent"
+            }
+        ]
     },
     {
         category: "Discipline",

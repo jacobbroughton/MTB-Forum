@@ -40,7 +40,7 @@ const SingleThread = () => {
 
   return (
     <div className="singleThreadParent">
-      <Link className="backButton" to={`/forum/${categoryUrl}`}>
+      <Link className="backButton" to={`/forum/${categoryUrl}/1`}>
         Back
       </Link>
       <div className="threadInfoParent">

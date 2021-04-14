@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import moment from "moment";
 import { useStatusUrl } from "../contexts/statusUrl";
 import { useUser } from "../contexts/user";
+import Comment from "./Comment";
 import "./styles/CommentFeed.scss";
 
 const CommentFeed = ({ id }) => {
@@ -14,6 +15,7 @@ const CommentFeed = ({ id }) => {
   const [commentBody, setCommentBody] = useState("");
   const [repliedCommentId, setRepliedCommentId] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [reply, setReply] = useState(false);
 
   const getComments = () => {
     axios
@@ -93,69 +95,16 @@ const CommentFeed = ({ id }) => {
       )}
       {comments &&
         comments.map((comment, i) => (
-          <div key={i} className="commentContainer">
-            <div className="textAndInfoParent">
-              <div className="profilePictureParent">
-                <img
-                  className="profilePicture"
-                  src="../../placeholderPerson.png"
-                  alt={`${comment.username}'s profile picture`}
-                />
-              </div>
-              <div className="commentBody">
-                <p className="username">{comment.username}</p>
-                <p className="mainText">{comment.main_text}</p>
-              </div>
-
-              {/* <div className="commentInfo">
-                                <div className="dateTime">
-                                    <p className="date">{comment.date_created}</p>
-                                    &nbsp; &nbsp;
-                                    <p className="time">{comment.time_created}</p>
-                                </div>
-                            </div> */}
-            </div>
-            {user && (
-              <div className="replyButtonDiv">
-                <button onClick={() => showReplyInput(comment.id)}>
-                  Reply
-                </button>
-              </div>
-            )}
-
-            <div className="repliesFeed">
-              {replies.map(
-                (rep) =>
-                  rep.replied_comment_id === comment.id && (
-                    <div className="replyContainer">
-                      <img
-                        className="profilePicture"
-                        src="../../placeholderPerson.png"
-                        alt={`${comment.username}'s profile picture`}
-                      />
-                      <div className="commentBody">
-                        <p className="username">{rep.username}</p>
-                        <p className="mainText">{rep.main_text}</p>
-                      </div>
-                      <div className="replyInfo"></div>
-                    </div>
-                  )
-              )}
-            </div>
-            {user && (
-              <>
-                <div id={comment.id} className="replyFormParent">
-                  <form className="replyForm" onSubmit={(e) => addComment(e)}>
-                    <input
-                      placeholder={`Reply to ${comment.username}`}
-                      name="mainTextInput"
-                      onChange={(e) => setCommentBody(e.target.value)}
-                    />
-                  </form>
-                </div>
-              </>
-            )}
-          </div>
+          <Comment
+            comment={comment}
+            i={i}
+            user={user}
+            showReplyInput={showReplyInput}
+            setCommentBody={setCommentBody}
+            addComment={addComment}
+            replies={replies}
+            setReply={setReply}
+          />
         ))}
     </div>
   );

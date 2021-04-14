@@ -1,12 +1,13 @@
-.threadFeedContainer {
+.threadFeed {
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   max-width: 1100px;
-  padding: 0px 30px;
+  padding: 0px 30px 50px 30px;
   margin-top: 50px;
   width: 100%;
+  margin-left: 230px;
 
   .threadFeedHeader {
     display: flex;
@@ -79,4 +80,15 @@
       padding-left: 15px;
     }
   }
+
+  .pagination{
+    display: flex;
+    
+      .paginationBtn{
+    color: #fff;
+    text-align: left;
+    margin-right: 10px;
+  }
+  }
+
 }
