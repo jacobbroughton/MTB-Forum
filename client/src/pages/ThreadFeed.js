@@ -38,7 +38,9 @@ const ThreadFeed = ({ category }) => {
     }
   };
 
-  const setTheLastId
+  const setTheLastId = () => {
+    
+  }
 
   useEffect(() => {
     getThreads();
